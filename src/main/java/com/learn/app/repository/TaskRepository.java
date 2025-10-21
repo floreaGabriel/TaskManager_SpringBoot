@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import com.learn.app.model.Task;
 
+/*
+ * Clasa care gestioneaza CRUD automat
+ * Ascunde codul SQL efectiv
+ * */
+
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
   // ========================================
