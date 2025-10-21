@@ -1,73 +1,57 @@
-# Legătura dintre Model, Repository, Service și DTO în Spring Boot
+# GGDevs Task Manager App
 
-1. Model / Entity (model/Task.java):
-- Ce este? Clasa Java care modelează o entitate din baza de date (ex: Task: id, title, description, completed)
+**A full-stack task management application built with Spring Boot (backend) and React (frontend) implementing modern app architecture and best practices.**
 
-- Rol: Definește structura datelor ce vor fi salvate în DB, mapată prin JPA/Hibernate la tabela SQL
+## Main Features
 
-- E baza operațiilor tale pe date. Fiecare tabel important are o entitate asociată.
+- **RESTful API** with Spring Boot (Java)
+- **Task CRUD operations** (Create, Read, Update, Delete)
+- **Task priorities and categories** (customizable, using enums and strings)
+- **Deadlines and automatic timestamps** (`createdAt`, `deadline`)
+- **DTO pattern & layered architecture**
+    - Entity, DTO for creation and response
+    - Service layer for business logic (validation, mapping)
+    - Repository layer for DB access
+- **Persistent database** using H2 (on disk) for development – ready for migration to MySQL/PostgreSQL
+- **Frontend in React/Vite**
+    - Fetch, display and manage tasks in real time
+    - Clean error, loading, and CORS handling
+    - Modular code with services and components
 
-2. Repository (repository/TaskRepository.java):
-Ce este? Interfață care extinde JpaRepository și gestionează CRUD automat
+## Tech Stack
 
-- Rol: Abstracție pentru accesul la date (salvezi, citești, ștergi, actualizezi Task-uri)
+- **Backend:** Spring Boot 3, Java 17+, H2 DB
+- **Frontend:** React (Vite), JavaScript/JSX
+- **Integration:** REST API, .env config, CORS setup
 
-- Legătură: Repository-ul primește și returnează Entity-urile (Task), ascunzând SQL-ul efectiv — nu are logică de business !
+## Getting Started
 
-- Fără repository, aplicația nu poate lucra cu baza de date.
+1. Clone the repository
+2. Configure backend (`application.properties`) for H2 persistent mode
+3. Start backend (`mvn spring-boot:run`)
+4. Create `.env` in `frontend` with your API URL and start Vite dev server (`npm run dev`)
+5. Open the React app and use the Task Manager UI
 
-3. Service Layer (service/TaskService.java):
-Ce este? Clasă (sau interfață + clasa) ce conține logica aplicației (business logic)
+### Example endpoints
+- `GET /api/tasks` — list all tasks
+- `POST /api/tasks` — add a new task with priority, category, deadline
 
-- Rol: Primiți cereri din Controller → aplicați validări, reguli, transformări
+## Project Structure
 
-- Lucrați cu Repository-ul pentru a accesa datele
+- **/model:** Task entity (with enums and timestamps)
+- **/dto:** DTOs for create/update/response
+- **/service:** Business logic (validation, mapping)
+- **/repository:** JPA repositories
+- **/controller:** REST endpoints
 
-- Decideți ce date se vor transmite mai departe (de obicei ca DTO)
+## Best Practices Used
 
-- Poate orcheza operații din mai multe Repository-uri
+- DTO separation (never expose entities directly)
+- Layered approach (service, repository, entity)
+- Persistent storage in development using H2
+- CORS/local dev integration with React
+- Ready for extension: add more features, swap DB to production (MySQL/PostgreSQL), security, tests
 
-- Poate gestiona tranzacții (@Transactional)
+**Contributions welcome!**
 
-- Legătură: Primește DTO-urile de la Controller, transformă în Entity, trimite spre Repository, primește Entity, îl transformă în alt DTO și îl trimite Controller-ului.​
-
-- Service Layer este OBLIGATORIU pentru orice aplicație cu logică peste CRUD simplu.
-
-4. DTO (Data Transfer Object):
-Ce este? Clasa Java folosită pentru schimb de date între straturi, specifică unui request sau response
-
-Rol:
-
-- Ascunde detaliile Entity-ului față de client
-
-- Permite validări/mapping personalizate
-
-De exemplu:
-
-- TaskCreateDTO (pentru cereri de creare: fără id, fără completed)
-
-- TaskResponseDTO (pentru răspunsuri: doar ce expui la client)
-
-- Legătură: Controller primește DTO din request, îl trimite Service-ului, Service-ul îl transformă în Entity pentru Repository și invers pentru răspuns.
-
-- DTO-urile sunt bune practici, mai ales pentru aplicații REST.
-
-5. Legătura dintre ele – exemplu simplificat
-- Clientul trimite un request HTTP (ex: POST /tasks) → Controller primește un DTO (TaskCreateDTO)
-
-- Controller apelează TaskService cu acest DTO
-
-- TaskService:
-
-- Validează logica de business
-
-- Transformă DTO în Task Entity
-
-- Apelează TaskRepository să salveze în DB
-
-- Primește un Task salvat
-
-- Transformă în TaskResponseDTO pentru output
-
-- Controller trimite TaskResponseDTO înapoi către client
 
