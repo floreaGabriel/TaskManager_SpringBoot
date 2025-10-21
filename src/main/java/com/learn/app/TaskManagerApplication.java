@@ -16,6 +16,7 @@ public class TaskManagerApplication {
     SpringApplication.run(TaskManagerApplication.class, args);
   }
   
+  /*
   @Bean
   CommandLineRunner testRepository(TaskRepository repository) {
     return args -> {
@@ -30,4 +31,5 @@ public class TaskManagerApplication {
       System.out.println("Incomplete: " + repository.findByCompleted(false));
     };
   }
+  */
 }
