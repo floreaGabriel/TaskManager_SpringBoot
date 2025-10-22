@@ -2,6 +2,9 @@ package com.learn.app.model;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.*;
@@ -16,8 +19,11 @@ import jakarta.validation.constraints.Size;
 */
 @Entity
 @Table(name = "tasks") // tabel name optional
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Task {
-  
+
   public enum Priority {
     LOW, MEDIUM, HIGH
   }
@@ -51,39 +57,12 @@ public class Task {
   
   @Column
   private LocalDateTime deadline;
-  // Constructors
-  
-  public Task() {}
 
-  public Task(String title, String description) {
-    this.title = title;
-    this.description = description;
-  }
-
-  // Getters and Setters
-  
-  public Long getId() { return this.id; }
-  public void setId(Long id) { this.id = id; }
-  public String getTitle() { return this.title; }
-  public void setTitle(String title) { this.title = title; }
-  public String getDescription() { return this.description; }
-  public void setDescription(String description) { this.description = description; }
-  public boolean isCompleted() { return completed; }
-  public void setCompleted(boolean completed) { this.completed = completed; }
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id", nullable = false)
+  private User user;
 
 
-  // Getters și setters pentru noile câmpuri
-  public Priority getPriority() { return priority; }
-  public void setPriority(Priority priority) { this.priority = priority; }
-
-  public String getCategory() { return category; }
-  public void setCategory(String category) { this.category = category; }
-
-  public LocalDateTime getCreatedAt() { return this.createdAt; }
-
-  public LocalDateTime getDeadline() { return deadline; }
-  public void setDeadline(LocalDateTime deadline) { this.deadline = deadline; }
-  
   // ========================================
   // toString() - pentru debugging & logging
   // ========================================

@@ -36,6 +36,13 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
   List<Task> findByCompleted(boolean completed);
   Optional<Task> findByTitle(String title);
 
+
+  // metode pentru users
+
+  List<Task> findByUserId(Long userId);
+  List<Task> findByUserIdAndCompleted(Long userId, boolean completed);
+  Optional<Task> findByIdAndUserId(Long taskId, Long userId);
+
   // ========================================
   // @Query - pentru query-uri complexe
   // ========================================
