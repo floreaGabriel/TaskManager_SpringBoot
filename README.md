@@ -24,6 +24,9 @@
 - **Frontend:** React (Vite), JavaScript/JSX
 - **Integration:** REST API, .env config, CORS setup
 
+<img width="1339" height="665" alt="Screenshot 2025-10-23 at 13 25 04" src="https://github.com/user-attachments/assets/b31a83f6-5106-4fc3-a95a-461366290d67" />
+
+
 ## Getting Started
 
 1. Clone the repository
