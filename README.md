@@ -15,8 +15,8 @@
 ## 📋 Table of Contents
 
 - [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Architecture](#-architecture)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
 - [Security](#-security)
 - [What I Learned](#-what-i-learned)
 - [License](#-license)
@@ -43,7 +43,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack <a name="tech-stack"></a>
 
 ### Backend
 - **Framework:** Spring Boot 3.5.6
@@ -80,7 +80,7 @@
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture <a name="architecture"></a>
 
 ### System Architecture Diagram
 
@@ -209,8 +209,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repo if you found it helpful!**
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/task-manager-k8s?style=social)](https://github.com/yourusername/task-manager-k8s/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/task-manager-k8s?style=social)](https://github.com/yourusername/task-manager-k8s/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/floreaGabriel/task-manager-k8s?style=social)](https://github.com/floreaGabriel/task-manager-k8s/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/floreaGabriel/task-manager-k8s?style=social)](https://github.com/floreaGabriel/task-manager-k8s/network/members)
 
 Made with ❤️ and ☕ | Deployed on Kubernetes
 
