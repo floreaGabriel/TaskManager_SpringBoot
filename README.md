@@ -24,7 +24,10 @@
 - **Frontend:** React (Vite), JavaScript/JSX
 - **Integration:** REST API, .env config, CORS setup
 
-<img width="1339" height="665" alt="Screenshot 2025-10-23 at 13 25 04" src="https://github.com/user-attachments/assets/b31a83f6-5106-4fc3-a95a-461366290d67" />
+
+## Architecture Diagram
+
+<img width="1539" height="901" alt="diagram-export-10-23-2025-1_28_59-PM" src="https://github.com/user-attachments/assets/eaab983b-af55-4e97-ac97-fdcbefe8a0d3" />
 
 
 ## Getting Started
