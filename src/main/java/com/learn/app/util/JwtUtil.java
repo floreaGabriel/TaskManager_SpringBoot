@@ -2,8 +2,8 @@ package com.learn.app.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -15,13 +15,16 @@ import java.util.function.Function;
 
 @Component
 public class JwtUtil {
-    private final String SECRET = "mySecretKeyForJWTTokenGenerationAndValidationSpringBootApplication2025";
 
-    private static final long JWT_TOKEN_VALIDITY = 10 * 60 * 60 * 1000; // 10 ore
+    @Value("{jwt.secret:mySecretKeyForJWTTokenGenerationAndValidationSpringBootApplication2025}")
+    private  String secret = "mySecretKeyForJWTTokenGenerationAndValidationSpringBootApplication2025";
+
+    @Value("${jwt.expiration:36000000}")
+    private Long expiration; // 10 ore
 
 
     private SecretKey getSigningKey() {
-        byte[] keyBytes = SECRET.getBytes(StandardCharsets.UTF_8);
+        byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
@@ -35,7 +38,7 @@ public class JwtUtil {
                 .claims(claims)
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY))
+                .expiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSigningKey())
                 .compact();
     }

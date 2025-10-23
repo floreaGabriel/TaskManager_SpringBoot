@@ -1,0 +1,16 @@
+:root {
+  --color-bg: #171F2A;
+  --color-border: #252C3D;
+  --color-accent: #26FCC9;
+  --color-primary: #228AF9;
+  --color-hover: #0B6EE0;
+  --color-font: #F3F3F3;
+  --font-main: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background: var(--color-bg);
+  font-family: var(--font-main);
+  color: var(--color-font);
+}
+

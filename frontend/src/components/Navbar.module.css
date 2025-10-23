@@ -1,0 +1,43 @@
+@import '../styles/theme.module.css';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg);
+  border-bottom: 1.5px solid var(--color-border);
+  padding: 0 1.1rem;
+  height: 4rem;
+  z-index: 10;
+}
+.title {
+  font-size: 2.2rem;
+  flex: 1;
+  text-align: center;
+  font-weight: 800;
+  font-family: var(--font-main);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.left, .addButton {
+  display: block;
+}
+@media (max-width: 500px) {
+  .left, .addButton {
+    display: none;
+  }
+  .title {
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+}
+.gradientText {
+  background: linear-gradient(90deg, #26FCC9, #228AF9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+

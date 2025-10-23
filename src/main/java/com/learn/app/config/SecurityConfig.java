@@ -75,7 +75,10 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173")); // frontend
+        config.setAllowedOrigins(Arrays.asList(
+                "http://localhost:5173",
+                "https://tm.ggdevs.site",
+                "http://tm.ggdevs.site")); // frontend
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 

@@ -1,2 +1,16 @@
-/mvnw text eol=lf
-*.cmd text eol=crlf
+# Exclude frontend JavaScript/CSS from GitHub language statistics
+frontend/** linguist-vendored
+frontend/node_modules/** linguist-vendored
+frontend/dist/** linguist-vendored
+frontend/build/** linguist-vendored
+
+# Force Java as primary language
+*.java linguist-detectable=true
+*.xml linguist-detectable=true
+
+# Mark frontend as documentation (optional)
+frontend/src/** linguist-documentation
+
+# Ignore generated files
+*.min.js linguist-generated
+*.min.css linguist-generated
